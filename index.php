@@ -19,10 +19,11 @@ include_once './db.php';
         <form action="data.php" method="POST">
             <div class="form-group">
                 <label for="child_id_number">პირადი ნომერი:</label>
-                <input style="width:15%;" type="text" class="form-control" id="child_id_number" name="child_id_number" required="">
+                <input style="width:40%;" type="text" class="form-control" id="child_id_number" name="child_id_number" required="">
                 <input value="დასტური" type="submit" id='submit-btn' class="btn btn-primary mt-4 lg" >
             </div>
         </form>
       </div>
+      
 </body>
 </html>

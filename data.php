@@ -36,7 +36,6 @@ if ($result->num_rows > 0) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>2nd auth</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     </head>
 
     <body>
@@ -55,7 +54,9 @@ if ($result->num_rows > 0) {
                 <div class="form-group">
                     <label for="child_phone">შეიყვანეთ ტელეფონის ნომერი</label>
                     <input style="width:15%;" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" title="არასწორი ფორმატი" type="text" class="form-control" id="child_phone" name="child_phone" required="" placeholder="5XX XXX XXX">
+                    <input type="hidden" name="idnumber" id="idnumber" value=<?php echo $id ?>>
                     <input value="დასტური" type="submit" id='submit-btn' class="btn btn-primary mt-4 lg">
+                    
                 </div>
             </form>
 
