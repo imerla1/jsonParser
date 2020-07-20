@@ -19,45 +19,75 @@ if ($result->num_rows > 0) {
             $phone_number = $row['number'];
         }
     }
-} else {
-    include "error.html";
 }
 
 // header('Location: ./index.php?added=success');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2nd auth</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-</head>
 
-<body>
-    <div class="jumbotron">
-        <h1 class="display-4">პერსონალური ინფორამცია</h1>
+<?php if ($result->num_rows > 0) { ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-        <ul class="list-group" style="width: 50%;">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2nd auth</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-            <li class="list-group-item"><strong>ბავშვის სახელი და გვარი: </strong><?php echo $name?></li>
-            <li class="list-group-item"><strong>დედის სახელი და გვარი: </strong><?php echo $mom?></li>
-            <li class="list-group-item"><strong>მამის სახელი და გვარი: </strong><?php echo $dad?></li>
-            
-        </ul>
-        <hr class="my-4">
-        <form action="update.php" method="POST">
-            <div class="form-group">
-                <label for="child_phone">შეიყვანეთ ტელეფონის ნომერი</label>
-                <input style="width:15%;" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" title="არასწორი ფორმატი" type="text" class="form-control" id="child_phone" name="child_phone" required="" placeholder="5XX XXX XXX">  
-                <input value="დასტური" type="submit" id='submit-btn' class="btn btn-primary mt-4 lg" >
-            </div>
-        </form>
-        
-    </div>
-</body>
+    </head>
 
-</html>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4">პერსონალური ინფორამცია</h1>
+
+            <ul class="list-group" style="width: 50%;">
+
+                <li class="list-group-item"><strong>ბავშვის სახელი და გვარი: </strong><?php echo $name ?></li>
+                <li class="list-group-item"><strong>დედის სახელი და გვარი: </strong><?php echo $mom ?></li>
+                <li class="list-group-item"><strong>მამის სახელი და გვარი: </strong><?php echo $dad ?></li>
+
+            </ul>
+            <hr class="my-4">
+            <form action="update.php" method="POST">
+                <div class="form-group">
+                    <label for="child_phone">შეიყვანეთ ტელეფონის ნომერი</label>
+                    <input style="width:15%;" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" title="არასწორი ფორმატი" type="text" class="form-control" id="child_phone" name="child_phone" required="" placeholder="5XX XXX XXX">
+                    <input value="დასტური" type="submit" id='submit-btn' class="btn btn-primary mt-4 lg">
+                </div>
+            </form>
+
+        </div>
+    </body>
+
+    </html>
+
+
+    <?php } else { { ?>
+
+        <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2nd auth</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4" style="color: red;">მოცემული პირადი ნომრით ბავშვი ვერ მოიძებნა</h1>
+
+            <a href="index.php">უკან დაბრუნება</a>
+
+        </div>
+    </body>
+
+    </html>
+
+<?php }
+}
