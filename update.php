@@ -1,3 +1,8 @@
+<?php
+// Turn off all error reporting
+    error_reporting(0);
+?>
+
 <?php 
     include_once 'db.php';
     
